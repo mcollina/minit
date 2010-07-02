@@ -26,6 +26,7 @@ gem "bson_ext", "1.0.1"
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
+
+group :test do
+  gem "rspec-rails", ">= 2.0.0.beta.15"
+end
