@@ -41,8 +41,10 @@ describe Sequence do
   end
   
   it "should have a next method that works if the object hasn't been saved" do
+    @instance.name = "prova"
     @instance.next.should == 0
     @instance.counter.should == 1
+    @instance.should be_persisted
   end
   
   it "should have a next method that works if the object has been saved" do

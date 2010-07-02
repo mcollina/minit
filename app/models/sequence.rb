@@ -14,6 +14,7 @@ class Sequence
     unless persisted?
       result = counter
       self.counter += 1
+      save if valid?
     else
       result = Mongoid::Config.instance.master.
         collection(collection_name).find_and_modify( 
