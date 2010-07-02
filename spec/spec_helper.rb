@@ -26,4 +26,10 @@ RSpec.configure do |config|
   
   # set to false because we are using mongoid
   config.use_transactional_fixtures = false 
+  
+    config.before(:each) do
+      Mongoid.master.collections.each do |collection|
+        collection.drop unless collection.name =~ /^system/
+      end
+  end
 end
