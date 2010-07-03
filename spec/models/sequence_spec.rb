@@ -52,5 +52,21 @@ describe Sequence do
     @instance.save
     @instance.next.should == 0
     @instance.counter.should == 1
+    @instance.should be_persisted
+  end
+  
+  describe "#class" do
+    
+    it "should have a next method that accepts the sequence name and" + 
+        "encapsulates the instance one" do
+      Sequence.next("a_sequence").should == 0
+      Sequence.next("a_sequence").should == 1
+    end
+    
+    it "should have a next method that accepts the sequence name and" + 
+      "encapsulates the instance one working and works vith symbols" do
+      Sequence.next(:a_sequence).should == 0
+      Sequence.next(:a_sequence).should == 1
+    end
   end
 end

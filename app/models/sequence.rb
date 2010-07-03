@@ -10,7 +10,6 @@ class Sequence
   validates_presence_of :counter
   
   def next
-    result = -1
     unless persisted?
       result = counter
       self.counter += 1
@@ -24,5 +23,9 @@ class Sequence
       reload
     end
     result
+  end
+  
+  def self.next(name)
+    find_or_create_by(:name => name).next
   end
 end
