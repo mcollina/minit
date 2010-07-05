@@ -28,5 +28,5 @@ gem "bson_ext", "1.0.1"
 # gem 'rspec', :group => :test
 
 group :test do
-  gem "rspec-rails", ">= 2.0.0.beta.15"
+  gem "rspec-rails", :git => 'http://github.com/rspec/rspec-rails.git'
 end
